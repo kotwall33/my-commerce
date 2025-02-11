@@ -1,3 +1,5 @@
+import { title } from 'process'
+
 const data = {
   headerMenus: [
     {
@@ -33,5 +35,29 @@ const data = {
       href: '/page/help',
     },
   ],
+  carousels: [
+    {
+      title: 'Most popular in Books',
+      buttonCaption: 'Shop Now',
+      image: '/images/1.jpg',
+      url: '/search?category=books',
+      isPublished: true,
+    },
+    {
+      title: 'Best seller in clothes',
+      buttonCaption: 'Shop Now',
+      image: '/images/6.jpg',
+      url: '/search?category=women-clothes',
+      isPublished: true,
+    },
+    {
+      title: 'Popular Deals in Grocery',
+      buttonCaption: 'Shop Now',
+      image: '/images/banner3.jpg',
+      url: '/search?category=grocery',
+      isPublished: true,
+    },
+  ],
 }
+
 export default data
