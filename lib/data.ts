@@ -1,4 +1,7 @@
 import { title } from 'process'
+import { Data, IProductInput } from '@/types'
+import { toSlug } from './utils'
+const products: IProductInput[] = []
 
 const data = {
   headerMenus: [
