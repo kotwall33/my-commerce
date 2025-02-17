@@ -1,5 +1,6 @@
 import { Document, Model, model, models, Schema } from 'mongoose'
 import { IProductInput } from '@/types'
+
 export interface IProduct extends Document, IProductInput {
   _id: string
   createdAt: Date
@@ -8,20 +9,53 @@ export interface IProduct extends Document, IProductInput {
 
 const productSchema = new Schema<IProduct>(
   {
-    name: { type: String, required: true },
-    slug: { type: String, required: true, unique: true },
-    category: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    category: {
+      type: String,
+      required: true,
+    },
     images: [String],
-    brand: { type: String, required: true },
-    description: { type: String, trim: true },
-    price: { type: Number, required: true },
-    listPrice: { type: Number, required: true },
-    countInStock: { type: Number, required: true },
+    brand: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    listPrice: {
+      type: Number,
+      required: true,
+    },
+    countInStock: {
+      type: Number,
+      required: true,
+    },
     tags: { type: [String], default: ['new arrival'] },
     colors: { type: [String], default: ['White', 'Red', 'Black'] },
-    sizes: { type: [String], default: ['S', 'M', 'L', 'XL', 'XXL'] },
-    avgRatin: { type: Number, required: true, default: 0 },
-    numReviews: { type: Number, required: true, default: 0 },
+    sizes: { type: [String], default: ['S', 'M', 'L'] },
+    avgRating: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    numReviews: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     ratingDistribution: [
       {
         rating: {
@@ -34,8 +68,16 @@ const productSchema = new Schema<IProduct>(
         },
       },
     ],
-    numSales: { type: Number, required: true, default: 0 },
-    isPublished: { type: Boolean, required: true, default: false },
+    numSales: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    isPublished: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     reviews: [
       {
         type: Schema.Types.ObjectId,
@@ -48,7 +90,9 @@ const productSchema = new Schema<IProduct>(
     timestamps: true,
   }
 )
+
 const Product =
   (models.Product as Model<IProduct>) ||
   model<IProduct>('Product', productSchema)
+
 export default Product
