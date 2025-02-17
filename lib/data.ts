@@ -708,7 +708,8 @@ const products: IProductInput[] = [
   },
 ]
 
-const data = {
+const data: Data = {
+  products,
   headerMenus: [
     {
       name: 'Hot Deals',
